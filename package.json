@@ -70,7 +70,7 @@
     "cucumber": "xolvio/cucumber-js#v0.9.4-chimp.3",
     "deep-extend": "^0.4.1",
     "exit": "^0.1.2",
-    "fibers": "^1.0.7",
+    "fibers": "git://github.com/lucetius/node-fibers#textSplitErrorCucumberMeteor",
     "freeport": "~1.0.5",
     "fs-extra": "~0.24.0",
     "glob": "^6.0.1",
