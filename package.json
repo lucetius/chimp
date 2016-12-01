@@ -27,6 +27,7 @@
   },
   "scripts": {
     "prepublish": "node ./scripts/prepublish.js",
+    "postinstall": "node ./scripts/prepublish.js",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
     "start": "node ./scripts/run.js",
@@ -36,7 +37,6 @@
     "publish-minor": "npm version minor; npm publish; git push; git push --tags",
     "publish-major": "npm version major; npm publish; git push; git push --tags"
   },
-  "postinstall": "node ./scripts/prepublish.js",
   "main": "dist/lib/chimp.js",
   "bin": {
     "chimp": "./bin/chimp.js"
