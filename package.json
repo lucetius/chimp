@@ -27,7 +27,7 @@
   },
   "scripts": {
     "prepublish": "node ./scripts/prepublish.js",
-    "postinstall": "./node_modules/.bin/babel src --ignore spec --out-dir ./dist -q",
+    "postinstall": "./node_modules/.bin/babel source --ignore spec --out-dir ./dist -q",
     "lint": "eslint ./src",
     "lintfix": "eslint ./src --fix",
     "start": "node ./scripts/run.js",
