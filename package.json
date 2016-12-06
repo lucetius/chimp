@@ -97,7 +97,7 @@
     "underscore": "~1.8.3",
     "xolvio-ddp": "^0.12.0",
     "xolvio-jasmine-expect": "^1.0.0",
-    "xolvio-sync-webdriverio": "^6.0.0"
+    "xolvio-sync-webdriverio": "^7.0.0"
   },
   "devDependencies": {
     "babel-jest": "^6.0.1",
