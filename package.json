@@ -1,6 +1,6 @@
 {
   "name": "chimp",
-  "version": "0.41.2",
+  "version": "0.42.0",
   "description": "Develop acceptance tests & end-to-end tests with realtime feedback.",
   "keywords": [
     "simian",
@@ -25,7 +25,11 @@
   "bugs": {
     "url": "https://github.com/xolvio/chimp/issues"
   },
+  "watch": {
+    "prepublish": "src/{lib,bin}/**/*.js"
+  },
   "scripts": {
+    "watch": "npm-watch",
     "prepublish": "node ./scripts/prepublish.js",
     "postinstall": "./node_modules/.bin/babel src --ignore spec --out-dir ./dist -q",
     "lint": "eslint ./src",
@@ -69,6 +73,7 @@
     "chai-as-promised": "~5.1.0",
     "child-process-debug": "0.0.7",
     "chokidar": "~1.6.0",
+    "chromedriver": "^2.24.1",
     "colors": "1.1.2",
     "commander": "^2.9.0",
     "cucumber": "lucetius/cucumber-js#disabledES6defaultExport",
@@ -92,7 +97,7 @@
     "underscore": "~1.8.3",
     "xolvio-ddp": "^0.12.0",
     "xolvio-jasmine-expect": "^1.0.0",
-    "xolvio-sync-webdriverio": "^5.1.0"
+    "xolvio-sync-webdriverio": "^6.0.0"
   },
   "devDependencies": {
     "babel-jest": "^6.0.1",
@@ -101,6 +106,7 @@
     "eslint-plugin-babel": "^3.0.0",
     "git-release-notes": "0.0.2",
     "jest-cli": "Sanjo/jest#7c71094",
+    "npm-watch": "^0.1.6",
     "shelljs": "^0.6.0"
   },
   "bundledDependencies": [
