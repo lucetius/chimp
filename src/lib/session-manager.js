@@ -116,6 +116,7 @@ SessionManager.prototype._waitForConnection = function (browser, callback) {
       callback();
     },
     (err) => {
+    console.log('PINGWIN err', err);
     if (err && err.seleniumStack && /ECONNREFUSED/.test(err.seleniumStack.type)) {
         if (++self.retry === self.maxRetries) {
           callback('[chimp][session-manager] timed out retrying to connect to selenium server');
