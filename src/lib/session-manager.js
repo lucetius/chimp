@@ -12,8 +12,6 @@ var requestretry = require('requestretry'),
  */
 function SessionManager(options) {
 
-  log.debug('[chimp][session-manager] options are', options);
-
   if (!options) {
      throw new Error('options is required');
    }
@@ -32,7 +30,7 @@ function SessionManager(options) {
   this.retryDelay = 3000;
   this.retry = 0;
 
-  log.debug('[chimp][session-manager] created a new SessionManager', options);
+  log.debug('[chimp][session-manager] created a new SessionManager');
 
 }
 
@@ -54,12 +52,6 @@ SessionManager.prototype._configureRemote = function (webdriverOptions, remote, 
 
     if (self.options.browser === 'phantomjs') {
       log.debug('[chimp][session-manager] browser is phantomjs, not reusing a session');
-      callback(null, browser);
-      return;
-    }
-
-    if (self.options.browser === 'chromedriver') {
-      log.debug('[chimp][session-manager] browser is chromedriver, not reusing a session');
       callback(null, browser);
       return;
     }
@@ -215,9 +207,17 @@ SessionManager.prototype._getWebdriverSessions = function (callback) {
     retryDelay: 500,
     retryStrategy: requestretry.RetryStrategies.HTTPOrNetworkError
   }, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      log.debug('[chimp][session-manager]', 'received data', body);
-      callback(null, JSON.parse(body).value);
+    if (!error) {
+      if (response.statusCode === 200) {
+        log.debug('[chimp][session-manager]', 'received data', body);
+        callback(null, JSON.parse(body).value);
+      } else {
+        log.error('[chimp][session-manager]', 'received error', `${response.statusMessage} [${response.statusCode}]`);
+        if (response.body) {
+          log.debug('[chimp][session-manager]', 'response', response.body);
+        }
+        callback(error);
+      }
     } else {
       log.error('[chimp][session-manager]', 'received error', error, 'response', response);
       callback(error);
@@ -258,7 +258,7 @@ SessionManager.prototype.killCurrentSession = function (callback) {
 
   this._getWebdriverSessions(function (err, sessions) {
 
-    if (sessions.length) {
+    if (sessions && sessions.length) {
       sessions.forEach(function (session) {
         var sessionId = session.id;
         log.debug('[chimp][session-manager]', 'deleting wd session', sessionId);

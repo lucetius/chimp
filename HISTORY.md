@@ -1,3 +1,81 @@
+# 0.47.1
+
+* updating chromedeiver to 2.27.2 (#562) (Gregory Parsons) 
+* Improves the release script (Sam Hatoum) 
+* Adds history (Sam Hatoum) 
+
+# 0.47.0
+
+* Fixes multiple ddp servers in watch mode (Sam Hatoum) 
+* Use new wrapper-instance (Sam Hatoum) 
+* Add commandline config example (Sam Hatoum) 
+* Feature - Enable Mocha glob pattern (#555) (Evan Francis) 
+* Fixes Selenium Hub error handling (#552) (lucetius) 
+* Fixes mochaCommandLineOptions CLI parameter (#553) (lucetius) 
+* Fixes new test stack configuration (Sam Hatoum) 
+* fix Meteor multiple servers .execute() (#556) (Evan Francis) 
+* Fixes random CircleCI fails (#559) (Sam Hatoum) 
+* Improvement/move to mocha (#551) (Sam Hatoum) 
+* Adds the release notes for v0.46.0 (Sam Hatoum) 
+
+# 0.46.0
+
+* Feature multiple meteor servers (#549) (Evan Francis) 
+* Create jsonOutput file only when cucumber steps are defined (#548) (lucetius) 
+* Fixes received error null when using hub-cloud.browserstack.com hostname (#547) (lucetius) 
+* Updates safe-to-update npm dependencies (Sam Hatoum) 
+* Fixes weirdo babel error (Sam Hatoum) 
+* Fixes weirdo babel error (Sam Hatoum) 
+* Update circle.yml (Sam Hatoum) 
+* Adds the release notes for v0.45.1 (Sam Hatoum) 
+
+# 0.45.1
+
+* add geckodriver to seleniumstandaloneoptions (#506) (Stephen Davidson) 
+* Increase chromedriver version to 2.25. (#518) (Kyle Ian) 
+* Adds the release notes for v0.45.0 (Sam Hatoum) 
+
+# 0.45.0
+
+* Updates to latest wdio-sync (Sam Hatoum) 
+* mention mocha config breaking change in history.md (#539) (Dheeraj Bhaskar) 
+
+# 0.44.0
+
+* Improvement/offline detection (#535) (Sam Hatoum) 
+* Improvement/custom mocha options (#534) (Sam Hatoum) 
+  - **Breaking change:** the old mochaXYZ options are not read, put mocha config in mochConfig {} object as in https://github.com/xolvio/chimp/blob/master/src/bin/default.js 
+* Improvement/chrome driver mode (#533) (Sam Hatoum) 
+
+# 0.43.0
+
+* version bump (Lukasz Gandecki) 
+* Fixes not reusing browser session in watch mode (lucetius) 
+* readme (Greg Parsons) 
+* adds npm-watch to allow running `npm run watch` to run the npm task &#39;prepublish&#39; on changes to src/lib or src/bin (Greg Parsons) 
+* Update phantom-spec.js (Mike Naughton) 
+* Use new phantom_ignoreSSLErrors option (Mike Naughton) 
+* Add configuration option for ignoring SSL errors (Mike Naughton) 
+* made slack community clickable (Dheeraj Bhaskar) 
+* added new line for formatting (Dheeraj Bhaskar) 
+* added back the new lines (Dheeraj Bhaskar) 
+* Make Community links explicit (Dheeraj Bhaskar) 
+* Use a valid base64 image/png encoding when attaching screenshots to a scenario  (fixes #462) (Logan Koester) 
+* Fixes circle config file syntax (Sam Hatoum) 
+* Adds the release notes for v0.41.2 (Sam Hatoum) 
+* use a released version of xolvio sync-webdriverio instead of a github link (lgandecki) 
+* Adds direct chromedriver functionality (lucetius) 
+
+ # 0.42.0
+
+* Refactor timeout variable (lucetius) 
+* Proper cucumber close, preventing tests from running, closing browser (lucetius) 
+* Meteor error handling - WIP (lucetius) 
+* Adds proper error handling when meteor is not running (lucetius) 
+* Change default timeout value in server.execute (lucetius) 
+* Fix proper timeouts error handling for server.execute (lucetius) 
+* Remove initSync for init single browser, change xolvio-sync-webdriverio version to support browser.desiredCapabilities and browser.options (lucetius) 
+
 # 0.41.2
 
 * Removes duplicate circle config (Sam Hatoum) 
