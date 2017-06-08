@@ -39,9 +39,9 @@ class Cucumber {
     if (booleanHelper.isTruthy(this.options.debugCucumber)) {
       port = parseInt(this.options.debugCucumber, 10);
       if (port > 1) {
-        opts.execArgv = ['--debug=' + port];
+        opts.execArgv = ['--inspect=' + port];
       } else {
-        opts.execArgv = ['--debug'];
+        opts.execArgv = ['--inspect'];
       }
     }
 
@@ -55,6 +55,8 @@ class Cucumber {
     }
 
     this.cucumberChild = cp.fork(path.join(__dirname, 'cucumber-wrapper.js'), args, opts);
+
+    process.stdin.pipe(this.cucumberChild.stdin);
 
     if (booleanHelper.isTruthy(this.options.conditionOutput)) {
       this.cucumberChild.stdout.on('data', (data) => {
